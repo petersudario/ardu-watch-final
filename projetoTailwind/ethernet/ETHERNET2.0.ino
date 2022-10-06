@@ -37,6 +37,7 @@ void loop() {
               digitalWrite(ledPin, LOW); //DESLIGA O LED
               status = 0; //VARIÁVEL RECEBE VALOR 0(SIGNIFICA QUE O LED ESTÁ DESLIGADO)
             }
+          client.print("GET /projeto/salvar.php?");
           client.println("HTTP/1.1 200 OK"); //ESCREVE PARA O CLIENTE A VERSÃO DO HTTP
           client.println("Content-Type: text/html"); //ESCREVE PARA O CLIENTE O TIPO DE CONTEÚDO(texto/html)
           client.println();
