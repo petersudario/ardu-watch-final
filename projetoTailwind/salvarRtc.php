@@ -9,5 +9,5 @@ echo $dia_rec;
 
 $SQL_INSERT = "INSERT INTO  `rtc`(tempo, dia) VALUES ('$tempo_rec', '$dia_rec')";
 $resultado = mysqli_query($conexao, $SQL_INSERT) or die (mysqli_error());
-header("location: listRtc.php");
+header("location: site.php");
 ?>
