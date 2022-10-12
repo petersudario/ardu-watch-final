@@ -22,7 +22,13 @@
             </div>
             </div>
         </nav>
+        <script type="text/javascript">
+    function load(){
+        setTimeout("window.open(self.location, '_self');", 1000);
+    }
+    </script>
     </header>
+
 <body onload="load()">
 
 
@@ -45,7 +51,7 @@
 	<?php
      while ($linha=mysqli_fetch_array($resultado)) {                 
 	
-	 $t = $linha["tempo"];
+	  $t = $linha["tempo"];
     $d = $linha["dia"]
 	?>
 	<tbody >

@@ -39,7 +39,6 @@
 		 <tr>
       
         <th scope="col">Oxigenação</th>
-        <th scope="col">Batimento</th>
         <th scope="col">BPM </th>
        
       </tr>
@@ -55,7 +54,6 @@
 	<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
       <td class="py-4 px-6"><?php echo "$oxig"; ?></td>
-      <td class="py-4 px-6"><?php echo "$batim"; ?></td>
       <td class="py-4 px-6"><?php echo "$bpm"; ?></td>
 
 

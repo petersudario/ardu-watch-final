@@ -64,6 +64,8 @@
    </table>
    <a class="font-sans antialiased font-bold text-white" href="./listRtc.php" > <center><br>Ir para RTC </center><br></h>
    <a class="font-sans antialiased font-bold text-white" href="./listOximetro.php"> <center><br>Ir para Oxímetro </center> <br></h>
+   <a class="font-sans antialiased font-bold text-white" href="./site.php"> <center><br>site </center> <br></h>
+
 </div>
 
 </body>
