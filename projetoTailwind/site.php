@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">    
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script src="https://cdn.tailwindcss.com"></script>
 
-        <script type="text/javascript">
-            function load(){
-                setTimeout("window.open(self.location, '_self');", 1000);
-            }
-        </script>
-   
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      </head>
-      <header>
-        <nav class="bg-gray-800">
-            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                <div class="relative flex h-16 items-center justify-between">
-                    <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div class="flex flex-shrink-0 items-center text-white">
-                            <p class="font-sans antialiased font-bold">ARDU-WATCH </p>
-                        </div>
+    <script type="text/javascript">
+    function load() {
+        setTimeout("window.open(self.location, '_self');", 2000);
+    }
+    </script>
+
+
+</head>
+<header>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center text-white">
+                        <p class="font-sans antialiased font-bold">ARDU-WATCH </p>
                     </div>
                 </div>
-                
             </div>
-            </div>
-        </nav>
-    </header>
+
+        </div>
+    </nav>
+</header>
+
 <body onload="load()" style="background-color:black; padding-bottom:150px">
-<div>
-  <?php 
+    <div>
+        <?php 
   include "conexao.php";  
    $sql = "SELECT * FROM oximetro 
    JOIN gps JOIN rtc";
   $resultado = mysqli_query($conexao,$sql)  or die (mysqli_error());
     ?>
-  <div class="overflow-x-auto relative " style="background-color:rgb(31,41,55);">
+        <div class="overflow-x-auto relative " style="background-color:rgb(31,41,55);">
 
-	<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-		 <thead class ="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-		 <tr>
-      
-        <th scope="col">Oxigenação</th>
-        <th scope="col">BPM </th>
-        <th scope="col">Horário</th>
-        <th scope="col">Data </th>
-        <th scope="col">Eixo X</th>
-        <th scope="col">Eixo Y </th>
-        <th scope="col">Status </th>
-        
-       
-      </tr>
-    </thead>
-	<?php
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+
+                        <th scope="col">Oxigenação</th>
+                        <th scope="col">BPM </th>
+                        <th scope="col">Horário</th>
+                        <th scope="col">Data </th>
+                        <th scope="col">Eixo X</th>
+                        <th scope="col">Eixo Y </th>
+                        <th scope="col">Status </th>
+
+
+                    </tr>
+                </thead>
+                <?php
       while ($linha=mysqli_fetch_array($resultado)) {                 
       
         $oxig = $linha["oxigenacao"];
@@ -66,16 +67,16 @@
 
       }
 	?>
-	<tbody >
-	<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <td class="py-4 px-6"><?php echo "$oxig"; ?></td>
-        <td class="py-4 px-6"><?php echo "$bpm"; ?></td>
-        <td class="py-4 px-6"><?php echo "$t"; ?></td>
-        <td class="py-4 px-6"><?php echo "$d"; ?></td>
-        <td class="py-4 px-6"><?php echo "$gx"; ?></td>
-        <td class="py-4 px-6"><?php echo "$gy"; ?></td>
-        <td class="py-4 px-6">
-            <?php  
+                <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="py-4 px-6"><?php echo "$oxig"; ?></td>
+                        <td class="py-4 px-6"><?php echo "$bpm"; ?></td>
+                        <td class="py-4 px-6"><?php echo "$t"; ?></td>
+                        <td class="py-4 px-6"><?php echo "$d"; ?></td>
+                        <td class="py-4 px-6"><?php echo "$gx"; ?></td>
+                        <td class="py-4 px-6"><?php echo "$gy"; ?></td>
+                        <td class="py-4 px-6">
+                            <?php  
                 $bom = "Bom"; 
                 $ruim = "Ruim"; 
                 $result;
@@ -96,16 +97,16 @@
                     echo $ruim;
                 }
             ?>
-            </td>
-    </tr>
-      
-    <?php
+                        </td>
+                    </tr>
+
+                    <?php
 	    mysqli_close($conexao);
-     ?> 
-   </tbody>
-   </table>
-</div>
-<?php
+     ?>
+                </tbody>
+            </table>
+        </div>
+        <?php
     if($result == true){ 
 
         echo '<div class="text-white" style="margin-top: 70px" id="sem perigo">
@@ -121,8 +122,8 @@
     }
     else{
         echo '    
+        
         <div class="text-white" style="margin-top: 70px" id="perigo">
-
         <center>
             <p class="font-sans antialiased font-bold" style="font-size: 30px">Perigo! Saúde em risco!</p>        
             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="width: 300px; height:300px">
@@ -132,12 +133,9 @@
         
     </div>';
     }
-
-
-    
-     
 ?>
 
 
 </body>
-</html> 
+
+</html>
