@@ -1,3 +1,11 @@
+
+<?php
+include('protect.php');
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -22,6 +30,7 @@
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex flex-shrink-0 items-center text-white">
                         <p class="font-sans antialiased font-bold">ARDU-WATCH </p>
+                        <a href="logout.php">Sair</a>
                     </div>
                 </div>
             </div>
@@ -33,6 +42,7 @@
 <body onload="load()" style="background-color:black; padding-bottom:150px">
     <div>
         <?php
+        
         include "conexao.php";
         $sql = "SELECT * FROM oximetro JOIN gps JOIN rtc";
         ($resultado = mysqli_query($conexao, $sql)) or die(mysqli_error());
