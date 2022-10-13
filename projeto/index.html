@@ -7,92 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <header>
-        <center>
-            <p>ARDU-WATCH </p>
-        </center>
-
-
-        <br><br>
-    </header>
-
-
     <center>
-        <div>
-            <label for="SalvarGps">Salvar Gps</label>
+        <div class="mb-4">
+            <label class="block bg-bla text-gray-700 text-sm font-bold mb-2" for="SalvarGps">Informações de teste
+            </label>
         </div>
 
-        <div>
-            <form action="salvarGps.php">
+        <div class="w-full max-w-xs">
+            <form action="salvar.php" class= "shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
 
 
-                <label for="gx">Eixo
+                <label for="gx" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Eixo
                     X</label>
 
-                <input type="text" name="gx" placeholder="-25.50762891328653" required>
+                <input type="text" name="gx"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="-25.50762891328653" required>
                 <br>
-                <label for="gy">Eixo
+                <label for="gy" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Eixo
                     Y</label>
-                <input type="text" name="gy" placeholder="-31.28670807759453" required>
-                <br><br>
-                <input type="submit" value="Salvar"> <br><br><br><br>
-
-            </form>
-        </div>
-        <div class="mb-4">
-            <label for="SalvarGps">Salvar Oxímetro </label>
-        </div>
-
-        <div class="w-full max-w-xs">
-            <form action="salvarOximetro.php">
-
-
-
-                <label for="ox">Oxigenação
-                </label>
-
-                <input type="text" name="ox" placeholder="Taxa de oxigenação" required>
-                <br>
-                <label for="bp">Batimento
-                </label>
-                <input type="text" name="bpm" placeholder="Taxa de batimentos" required>
+                <input type="text" name="gy"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="-31.28670807759453" required>
                 <br>
 
-
-
-                <label for="bp">Batimento por
+                <label for="bpm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Batimento por
                     minuto
                 </label>
-                <input type="text" name="bpm" placeholder="               ..................................." required>
-                <br><br>
-                <input type="submit" value="Salvar">
-                <br><br><br><br>
+                <input type="text" name="bpm"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="               ..................................." required>
+                <br> 
 
-            </form>
-        </div>
-        <div class="mb-4">
-            <label  for="SalvarGps">Salvar RTC </label>
-        </div>
-
-        <div class="w-full max-w-xs">
-            <form action="salvarGps.php">
-
-
-
-                <label for="hora" >Hora
+                <label for="ox" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Oxigenação
                 </label>
 
-                <input type="text" name="hora" placeholder="15:46" required>
+                <input type="text" name="ox"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Taxa de oxigenação" required>
+                <br>
+                <label for="hora" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hora
+                </label>
+
+                <input type="text" name="hora"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="15:46" required>
                 <br>
                 <label for="diaAno" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Data</label>
-                <input type="text" name="diaAno" placeholder="2004-06-10" required>
+                <input type="text" name="diaAno"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="2004-06-10" required>
+                <br>
+                <input type="submit" value="Salvar"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+
                 <br><br>
-                <input type="submit" value="Salvar">
-                <br><br><br><br>
 
             </form>
         </div>
+        
     </center>
 
 </html>
