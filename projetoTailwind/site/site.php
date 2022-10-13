@@ -1,4 +1,3 @@
-
 <?php
 include('protect.php');
 
@@ -30,8 +29,11 @@ include('protect.php');
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex flex-shrink-0 items-center text-white">
                         <p class="font-sans antialiased font-bold">ARDU-WATCH </p>
-                        <a href="logout.php">Sair</a>
                     </div>
+                </div>
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
+                    <a class ="text-white font-sans antialiased font-bold"href="logout.php">Logout</a>
+
                 </div>
             </div>
 
@@ -91,7 +93,7 @@ include('protect.php');
                             }
                             echo $oxig;
                             ?>
-                            </td>
+                        </td>
                         <td class="py-4 px-6"><?php echo "$t"; ?></td>
                         <td class="py-4 px-6"><?php echo "$d"; ?></td>
                         <td class="py-4 px-6"><?php echo "$gx"; ?></td>
