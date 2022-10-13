@@ -34,8 +34,7 @@
     <div>
         <?php 
   include "conexao.php";  
-   $sql = "SELECT * FROM oximetro 
-   JOIN gps JOIN rtc";
+   $sql = "SELECT * FROM oximetro JOIN gps JOIN rtc";
   $resultado = mysqli_query($conexao,$sql)  or die (mysqli_error());
     ?>
         <div class="overflow-x-auto relative " style="background-color:rgb(31,41,55);">
@@ -44,8 +43,9 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
 
-                        <th scope="col">Oxigenação</th>
+
                         <th scope="col">BPM </th>
+                        <th scope="col">Oxigenação</th>
                         <th scope="col">Horário</th>
                         <th scope="col">Data </th>
                         <th scope="col">Eixo X</th>
@@ -56,10 +56,12 @@
                     </tr>
                 </thead>
                 <?php
-      while ($linha=mysqli_fetch_array($resultado)) {                 
-      
-        $oxig = $linha["oxigenacao"];
+      while ($linha=mysqli_fetch_array($resultado)) {      
+        
+        
         $bpm = $linha["bpm"];
+        $oxig = $linha["oxigenacao"];
+
         $gx = $linha["geox"];
         $gy = $linha["geoy"];
         $t = $linha["tempo"];
@@ -69,8 +71,9 @@
 	?>
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td class="py-4 px-6"><?php echo "$oxig"; ?></td>
+
                         <td class="py-4 px-6"><?php echo "$bpm"; ?></td>
+                        <td class="py-4 px-6"><?php echo "$oxig"; ?></td>
                         <td class="py-4 px-6"><?php echo "$t"; ?></td>
                         <td class="py-4 px-6"><?php echo "$d"; ?></td>
                         <td class="py-4 px-6"><?php echo "$gx"; ?></td>
