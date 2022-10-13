@@ -38,12 +38,9 @@
   $resultado = mysqli_query($conexao,$sql)  or die (mysqli_error());
     ?>
         <div class="overflow-x-auto relative " style="background-color:rgb(31,41,55);">
-
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-
-
                         <th scope="col">BPM </th>
                         <th scope="col">Oxigenação</th>
                         <th scope="col">Horário</th>
@@ -51,17 +48,13 @@
                         <th scope="col">Eixo X</th>
                         <th scope="col">Eixo Y </th>
                         <th scope="col">Status </th>
-
-
                     </tr>
                 </thead>
                 <?php
       while ($linha=mysqli_fetch_array($resultado)) {      
         
-        
         $bpm = $linha["bpm"];
         $oxig = $linha["oxigenacao"];
-
         $gx = $linha["geox"];
         $gy = $linha["geoy"];
         $t = $linha["tempo"];
@@ -72,27 +65,34 @@
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
-                        <td class="py-4 px-6"><?php echo "$bpm"; ?></td>
-                        <td class="py-4 px-6"><?php echo "$oxig"; ?></td>
+                        <td class="py-4 px-6">
+                            <?php 
+                            include "result.php";
+                            if ($result == false){
+                                echo '<svg style="width: 20px; height:20px xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                            </svg>';
+                            }
+                            echo $bpm;
+                            ?>
+                        </td>
+                        <td class="py-4 px-6">
+                            <?php 
+                            if ($result2 == false){
+                                echo '<svg style="width: 20px; height:20px xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                            </svg>';
+                            }
+                            echo $oxig;
+                            
+                            ?>
+                            </td>
                         <td class="py-4 px-6"><?php echo "$t"; ?></td>
                         <td class="py-4 px-6"><?php echo "$d"; ?></td>
                         <td class="py-4 px-6"><?php echo "$gx"; ?></td>
                         <td class="py-4 px-6"><?php echo "$gy"; ?></td>
                         <td class="py-4 px-6">
                             <?php  
-                $bom = "Bom"; 
-                $ruim = "Ruim"; 
-                $result;
-                if ($bpm > 78) {
-                    $result = false;
-                } 
-                else if ($bpm < 73)
-                {
-                    $result = false;
-                }
-                else if ($bpm >=74){
-                    $result = true;
-                }
                 if($result == true){
                     echo $bom;
                 }
@@ -110,7 +110,7 @@
             </table>
         </div>
         <?php
-    if($result == true){ 
+    if($result == true and $result2 == true){ 
 
         echo '<div class="text-white" style="margin-top: 70px" id="sem perigo">
 
@@ -123,7 +123,7 @@
         
     </div>';
     }
-    else{
+    else {
         echo '    
         
         <div class="text-white" style="margin-top: 70px" id="perigo">
