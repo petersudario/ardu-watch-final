@@ -32,11 +32,11 @@
 
 <body onload="load()" style="background-color:black; padding-bottom:150px">
     <div>
-        <?php 
-  include "conexao.php";  
-   $sql = "SELECT * FROM oximetro JOIN gps JOIN rtc";
-  $resultado = mysqli_query($conexao,$sql)  or die (mysqli_error());
-    ?>
+        <?php
+        include "conexao.php";
+        $sql = "SELECT * FROM oximetro JOIN gps JOIN rtc";
+        ($resultado = mysqli_query($conexao, $sql)) or die(mysqli_error());
+        ?>
         <div class="overflow-x-auto relative " style="background-color:rgb(31,41,55);">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -50,25 +50,21 @@
                         <th scope="col">Status </th>
                     </tr>
                 </thead>
-                <?php
-      while ($linha=mysqli_fetch_array($resultado)) {      
-        
-        $bpm = $linha["bpm"];
-        $oxig = $linha["oxigenacao"];
-        $gx = $linha["geox"];
-        $gy = $linha["geoy"];
-        $t = $linha["tempo"];
-        $d = $linha["dia"];
-
-      }
-	?>
+                <?php while ($linha = mysqli_fetch_array($resultado)) {
+                    $bpm = $linha["bpm"];
+                    $oxig = $linha["oxigenacao"];
+                    $gx = $linha["geox"];
+                    $gy = $linha["geoy"];
+                    $t = $linha["tempo"];
+                    $d = $linha["dia"];
+                } ?>
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
                         <td class="py-4 px-6">
-                            <?php 
+                            <?php
                             include "result.php";
-                            if ($result == false){
+                            if ($result == false) {
                                 echo '<svg style="width: 20px; height:20px xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                             </svg>';
@@ -77,14 +73,13 @@
                             ?>
                         </td>
                         <td class="py-4 px-6">
-                            <?php 
-                            if ($result2 == false){
+                            <?php
+                            if ($result2 == false) {
                                 echo '<svg style="width: 20px; height:20px xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                             </svg>';
                             }
                             echo $oxig;
-                            
                             ?>
                             </td>
                         <td class="py-4 px-6"><?php echo "$t"; ?></td>
@@ -92,27 +87,20 @@
                         <td class="py-4 px-6"><?php echo "$gx"; ?></td>
                         <td class="py-4 px-6"><?php echo "$gy"; ?></td>
                         <td class="py-4 px-6">
-                            <?php  
-                if($result == true){
-                    echo $bom;
-                }
-                else {
-                    echo $ruim;
-                }
-            ?>
+                            <?php if ($result == true) {
+                                echo $bom;
+                            } else {
+                                echo $ruim;
+                            } ?>
                         </td>
                     </tr>
 
-                    <?php
-	    mysqli_close($conexao);
-     ?>
+                    <?php mysqli_close($conexao); ?>
                 </tbody>
             </table>
         </div>
-        <?php
-    if($result == true and $result2 == true){ 
-
-        echo '<div class="text-white" style="margin-top: 70px" id="sem perigo">
+        <?php if ($result == true and $result2 == true) {
+            echo '<div class="text-white" style="margin-top: 70px" id="sem perigo">
 
         <center>
             <p class="font-sans antialiased font-bold" style="font-size: 30px">Nenhum risco encontrado!</p>        
@@ -122,9 +110,8 @@
         </center>
         
     </div>';
-    }
-    else {
-        echo '    
+        } else {
+            echo '    
         
         <div class="text-white" style="margin-top: 70px" id="perigo">
         <center>
@@ -135,8 +122,7 @@
         </center>
         
     </div>';
-    }
-?>
+        } ?>
 
 
 </body>

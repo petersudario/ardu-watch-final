@@ -20,13 +20,3 @@ $resultado = mysqli_multi_query($conexao, $SQL_INSERT3) or die (mysqli_error());
 
 header("location: site.php");
 ?>
-
-
-/*
-
-$oxig = $linha["oxigenacao"];
-        $bpm = $linha["bpm"];
-        $gx = $linha["geox"];
-        $gy = $linha["geoy"];
-        $t = $linha["tempo"];
-        $d = $linha["dia"];
