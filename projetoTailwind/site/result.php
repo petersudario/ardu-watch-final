@@ -1,4 +1,6 @@
 <?php
+
+
 $bom = "Bom";
 $ruim = "Ruim";
 if ($bpm > 78) {
@@ -15,6 +17,13 @@ if ($oxig >= 95) {
 
 if ($oxig < 95) {
     $result2 = false;
+}
+
+if ($pressionado == true){
+    $result3 = true;
+}
+else {
+    $result3 = false;
 }
 
 ?>

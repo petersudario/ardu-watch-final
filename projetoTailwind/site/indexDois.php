@@ -51,6 +51,36 @@
         </div>
 
         <div class="w-full max-w-xs">
+
+            <form method="post" 
+                <?php
+                    if (isset($_POST["button"]))
+                    {
+
+                        include "conexao.php";
+
+
+                        $SQL_INSERT4 = "UPDATE botao SET pressionado = 1 ";
+                        
+
+                        $resultado = mysqli_multi_query($conexao, $SQL_INSERT4) or die (mysqli_error());
+                        $SQL_UPDATE = " DROP EVENT IF EXISTS `Expira` ";
+                        
+                        $resultado = mysqli_multi_query($conexao, $SQL_UPDATE) or die (mysqli_error());
+                        
+                       
+                        $SQL_UPDATE = "CREATE DEFINER=`root`@`localhost` EVENT `Expira` ON SCHEDULE EVERY 10 SECOND ON COMPLETION PRESERVE ENABLE DO UPDATE botao SET pressionado = 0";
+                        
+                        $resultado = mysqli_multi_query($conexao, $SQL_UPDATE) or die (mysqli_error());
+                        header("Location: site.php");
+                    }
+                ?>
+            >
+                <input type="submit" name="button"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    value="Botão de pânico" />
+            </form>
+            <br>
             <form action="salvar.php" class="bg-black shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
 
@@ -75,7 +105,7 @@
                 <input type="text" name="bpm"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="               ..................................." required>
-                <br> 
+                <br>
 
                 <label for="ox" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Oxigenação
                 </label>
@@ -102,8 +132,8 @@
                 <br><br>
 
             </form>
-        </div>
-        
+
+
     </center>
 
 </html>

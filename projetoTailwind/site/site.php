@@ -14,13 +14,25 @@ include('protect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script type="text/javascript">
+    <script>
     function load() {
-        setTimeout("window.open(self.location, '_self');", 2000);
+        setTimeout("window.open(self.location, '_self');", 14000);
     }
+
+
+
+    function funcaoJava() {
+        let retornoPHP = 
+        '<?php  
+        include "eventScheduler.php";
+        schedulerOn();
+        ?>';
+        setTimeout("alert(retornoPHP);", 12000)
+    }
+
+
+
     </script>
-
-
 </head>
 <header>
     <nav class="bg-gray-800">
@@ -32,7 +44,7 @@ include('protect.php');
                     </div>
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
-                    <a class ="text-white font-sans antialiased font-bold"href="logout.php">Logout</a>
+                    <a class="text-white font-sans antialiased font-bold" href="logout.php">Logout</a>
 
                 </div>
             </div>
@@ -46,8 +58,11 @@ include('protect.php');
         <?php
         
         include "conexao.php";
-        $sql = "SELECT * FROM oximetro JOIN gps JOIN rtc";
-        ($resultado = mysqli_query($conexao, $sql)) or die(mysqli_error());
+        $sql = "SELECT * FROM oximetro JOIN gps JOIN rtc JOIN botao";
+        $resultado = mysqli_query($conexao, $sql) or die(mysqli_error());
+
+
+
         ?>
         <div class="overflow-x-auto relative " style="background-color:rgb(31,41,55);">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -60,6 +75,8 @@ include('protect.php');
                         <th scope="col">Eixo X</th>
                         <th scope="col">Eixo Y </th>
                         <th scope="col">Status </th>
+                        <th scope="col">Botão </th>
+
                     </tr>
                 </thead>
                 <?php while ($linha = mysqli_fetch_array($resultado)) {
@@ -69,6 +86,7 @@ include('protect.php');
                     $gy = $linha["geoy"];
                     $t = $linha["tempo"];
                     $d = $linha["dia"];
+                    $pressionado = $linha["pressionado"];
                 } ?>
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -105,6 +123,17 @@ include('protect.php');
                                 echo $ruim;
                             } ?>
                         </td>
+                        <td class="py-4 px-6">
+                            <?php if ($result3 == true) {
+                                echo "Pressionado!";
+                            } else {
+                                echo "Nenhum alerta";
+                            } 
+
+
+                            ?>
+
+
                     </tr>
 
                     <?php mysqli_close($conexao); ?>
@@ -137,6 +166,10 @@ include('protect.php');
         } ?>
 
 
+
+        </td>
+
+<div onload="carregar()"></div>
 </body>
 
 </html>
