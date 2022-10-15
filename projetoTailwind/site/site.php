@@ -13,26 +13,20 @@ include('protect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+
 
     <script>
     function load() {
-        setTimeout("window.open(self.location, '_self');", 14000);
+        setTimeout("window.open(self.location, '_self');", 10000);
     }
-
-
-
-    function funcaoJava() {
-        let retornoPHP = 
-        '<?php  
-        include "eventScheduler.php";
-        schedulerOn();
-        ?>';
-        setTimeout("alert(retornoPHP);", 12000)
-    }
-
-
-
     </script>
+
+
+
+
 </head>
 <header>
     <nav class="bg-gray-800">
@@ -88,6 +82,7 @@ include('protect.php');
                     $d = $linha["dia"];
                     $pressionado = $linha["pressionado"];
                 } ?>
+
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
@@ -123,17 +118,30 @@ include('protect.php');
                                 echo $ruim;
                             } ?>
                         </td>
-                        <td class="py-4 px-6">
-                            <?php if ($result3 == true) {
-                                echo "Pressionado!";
-                            } else {
-                                echo "Nenhum alerta";
-                            } 
+                        <td id="content" onload="carregar();" class="py-4 px-6">
 
+                            <?php
+                                include "scrp.php";
+                                include "result2.php";
+
+                                
+
+                            if ($result3 == true) {
+                                
+                                echo $a;
+                            
+                            } if ($result3 == false) {
+                                
+                                
+                                echo "Nenhum alerta";
+
+
+                            } 
+                            
 
                             ?>
 
-
+                        </td>
                     </tr>
 
                     <?php mysqli_close($conexao); ?>
@@ -166,10 +174,5 @@ include('protect.php');
         } ?>
 
 
-
-        </td>
-
-<div onload="carregar()"></div>
-</body>
 
 </html>
