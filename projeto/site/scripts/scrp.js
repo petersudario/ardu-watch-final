@@ -1,13 +1,13 @@
 function carregar() {
 
     setTimeout(function () {
-        $('#content').load("texto.php");
+        $('#content').load("src/texto.php");
       }, 4000);
       setTimeout(function () {
-        $('#content').load("salvarBotao.php");
+        $('#content').load("scripts/salvarBotao.php");
       },0);
       setTimeout(function () {
-        $('#content').load("texto2.php");
+        $('#content').load("src/texto2.php");
       }, 0);
 
 }

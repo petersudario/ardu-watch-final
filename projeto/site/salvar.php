@@ -1,5 +1,5 @@
 <?php
-include "conexao.php";
+include "scripts/conexao.php";
 
 $gx_rec = $_GET['gx'];
 $gy_rec = $_GET['gy'];

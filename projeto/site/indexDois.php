@@ -57,7 +57,7 @@
                     if (isset($_POST["button"]))
                     {
 
-                        include "conexao.php";
+                        include "scripts/conexao.php";
 
 
                         $SQL_INSERT4 = "UPDATE botao SET pressionado = 1 ";

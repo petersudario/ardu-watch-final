@@ -1,5 +1,5 @@
 <?php
-include('conexaoLogin.php');
+include('scripts/conexaoLogin.php');
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
 
